@@ -1,12 +1,18 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { browserHistory } from 'react-router';
 
 class CarDetail extends Component {
-    render(){
-        const cars= this.props.route.data;
+
+    handleRedirect() {
+        browserHistory.push('/cars');
+    }
+
+    render() {
+        const cars = this.props.route.data;
         const id = this.props.params.id;
 
-        const car= cars.filter(car=>{
-            if(car.id==id){
+        const car = cars.filter(car => {
+            if (car.id == id) {
                 return car;
             };
         });
@@ -21,15 +27,19 @@ class CarDetail extends Component {
                         </div>
                     </div>
                     <div className="col-sm-6 col-md-4">
-                       <ul className="carInfoList">
-                           <li><strong>Model</strong>: {car[0].model}</li>
-                           <li><strong>Make</strong>: {car[0].make}</li>
-                           <li><strong>Year</strong>: {car[0].year}</li>
-                           <li><strong>Price</strong>: {car[0].price}</li>
-                       </ul>
+                        <ul className="carInfoList">
+                            <li><strong>Model</strong>: {car[0].model}</li>
+                            <li><strong>Make</strong>: {car[0].make}</li>
+                            <li><strong>Year</strong>: {car[0].year}</li>
+                            <li><strong>Price</strong>: {car[0].price}</li>
+                        </ul>
                     </div>
                 </div>
+                <div className="col-md-12">
+                    <button className="btn btn-default" onClick={this.handleRedirect.bind(this)}>Go to Cars</button>
+                </div>
             </div>
+
         );
     }
 }

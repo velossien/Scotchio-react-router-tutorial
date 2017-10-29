@@ -28564,7 +28564,7 @@
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -28575,6 +28575,8 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 184);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28594,7 +28596,12 @@
 	    }
 	
 	    _createClass(CarDetail, [{
-	        key: "render",
+	        key: 'handleRedirect',
+	        value: function handleRedirect() {
+	            _reactRouter.browserHistory.push('/cars');
+	        }
+	    }, {
+	        key: 'render',
 	        value: function render() {
 	            var cars = this.props.route.data;
 	            var id = this.props.params.id;
@@ -28606,76 +28613,85 @@
 	            });
 	
 	            return _react2.default.createElement(
-	                "div",
+	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    "h1",
+	                    'h1',
 	                    null,
 	                    car[0].name
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "row" },
+	                    'div',
+	                    { className: 'row' },
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "col-sm-6 col-md-4" },
+	                        'div',
+	                        { className: 'col-sm-6 col-md-4' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "thumbnail" },
-	                            _react2.default.createElement("img", { src: car[0].media, alt: car[0].name })
+	                            'div',
+	                            { className: 'thumbnail' },
+	                            _react2.default.createElement('img', { src: car[0].media, alt: car[0].name })
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "col-sm-6 col-md-4" },
+	                        'div',
+	                        { className: 'col-sm-6 col-md-4' },
 	                        _react2.default.createElement(
-	                            "ul",
-	                            { className: "carInfoList" },
+	                            'ul',
+	                            { className: 'carInfoList' },
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "strong",
+	                                    'strong',
 	                                    null,
-	                                    "Model"
+	                                    'Model'
 	                                ),
-	                                ": ",
+	                                ': ',
 	                                car[0].model
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "strong",
+	                                    'strong',
 	                                    null,
-	                                    "Make"
+	                                    'Make'
 	                                ),
-	                                ": ",
+	                                ': ',
 	                                car[0].make
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "strong",
+	                                    'strong',
 	                                    null,
-	                                    "Year"
+	                                    'Year'
 	                                ),
-	                                ": ",
+	                                ': ',
 	                                car[0].year
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "strong",
+	                                    'strong',
 	                                    null,
-	                                    "Price"
+	                                    'Price'
 	                                ),
-	                                ": ",
+	                                ': ',
 	                                car[0].price
 	                            )
 	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-12' },
+	                    _react2.default.createElement(
+	                        'button',
+	                        { className: 'btn btn-default', onClick: this.handleRedirect.bind(this) },
+	                        'Go to Cars'
 	                    )
 	                )
 	            );
